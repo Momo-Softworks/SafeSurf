@@ -98,8 +98,8 @@ function processImages() {
 				}
 			});
 
-			console.log(`Processed image: ${result.imageUrl}`);
-			console.log(result.predictions)
+			// console.log(`Processed image: ${result.imageUrl}`);
+			// console.log(result.predictions)
 
 			processImages();
 		}).catch(error => {
@@ -114,7 +114,7 @@ function processImages() {
 chrome.runtime.onMessage.addListener((request) => {
 	if (request.action === 'queueImages') {
 		const newImageUrls = request.imageUrls;
-		console.log(newImageUrls);
+		// console.log(newImageUrls);
 		queue.push(...newImageUrls);
 		if (modelLoaded) {
 			processImages();
