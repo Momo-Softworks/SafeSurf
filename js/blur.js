@@ -20,7 +20,7 @@ let modalInitialized = false;
 let nsfwDetections = 0;
 
 const processQueue = () => {
-	console.log(`Sending ${queue.length} images to the background script for processing.`)
+	// console.log(`Sending ${queue.length} images to the background script for processing.`)
 	if (queue.length > 0) {
 		chrome.runtime.sendMessage({
 			action: 'queueImages',
@@ -111,9 +111,9 @@ document.addEventListener('DOMContentLoaded', () => {
 				}
 			});
 	
-			if (urls.length > 0) {
-				console.log(`Background images found: \n ${urls.join('\n ')} \n from background image ${backgroundImageString}`);
-			}
+			// if (urls.length > 0) {
+			// 	console.log(`Background images found: \n ${urls.join('\n ')} \n from background image ${backgroundImageString}`);
+			// }
 		}
 	};
 	
