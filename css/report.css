@@ -1,0 +1,201 @@
+.nsfw-detected a, .nsfw-not a {
+  text-decoration: none;
+  transition: color 0.2s ease-out;
+}
+.nsfw-detected a {
+  color: #52d29a;
+}
+.nsfw-detected a:hover {
+  color: #279766;
+}
+.nsfw-not a {
+  color: #eb7655;
+}
+.nsfw-not a:hover {
+  color: #c33d17;
+}
+#nsfw-modal {
+  width: 100%;
+  max-width:800px;
+  padding: 0;
+  background: rgba(48,48,48,1);
+  color: rgba(255, 255, 255, 0.9);
+  overflow: hidden;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+  font-family: "Open Sans", sans-serif;
+}
+
+.hidden-modal{
+  opacity: 0 !important;
+  transition: opacity 0.3s ease-in-out;
+  /* visibility: hidden !important; */
+}
+
+.shown-modal{
+  opacity: 1 !important;
+  transition: opacity 0.3s ease-in-out;
+  /* visibility: visible !important; */
+
+}
+
+.nsfw-row ul {
+  margin: 0;
+  padding: 0;
+}
+.nsfw-row ul li {
+  margin: 0;
+  font-size: 16px;
+  font-weight: normal;
+  list-style: none;
+  display: inline-block;
+  width: 25%;
+  box-sizing: border-box;
+  text-shadow: 0 2px 0 rgba(0,0,0,.25);
+}
+@media only screen and (max-width: 767px) and (min-width: 480px) {
+  .nsfw-row ul li {
+      font-size: 13px;
+ }
+}
+@media only screen and (max-width: 479px) {
+  .nsfw-row ul li {
+      font-size: 13px;
+ }
+}
+
+.nsfw-row ul li {
+  padding: 5px 10px;
+}
+.code-text{
+  font-family: "Fira Code", monospace;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+.nsfw-row {
+  padding: 20px 0;
+  height: 30px;
+  font-size: 0;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease-out;
+  border-top: 1px solid rgba(41, 41, 41, 1);
+  box-sizing: content-box !important;
+}
+.nsfw-row:hover {
+  background-color: rgba(26, 26, 26, 0.9);
+  height: 130px;
+}
+@media only screen and (max-width: 767px) {
+  .nsfw-row:hover {
+      height: 85px;
+ }
+}
+@media only screen and (max-width: 359px) {
+  .nsfw-row:hover {
+      height: 105px;
+ }
+}
+.nsfw-title {
+  padding: 25px 0 5px 0;
+  height: 45px;
+  font-size: 0;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-left: 3px solid rgba(255, 255, 255, 0.1);
+}
+.nsfw-title:hover {
+  height: 45px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-left: 3px solid rgba(255, 255, 255, 0.1);
+}
+.nsfw-detected {
+  border-left: 3px solid #1d6e4b;
+}
+.nsfw-detected:hover {
+  border-left: 3px solid #52d29a;
+}
+.nsfw-not {
+  border-left: 3px solid #952f12;
+}
+.nsfw-not:hover {
+  border-left: 3px solid #eb7655;
+}
+ul.more-content {
+  height: 100%;
+}
+ul.more-content li {
+  position: relative;
+  top: 22px;
+  font-size: 13px;
+  margin: 0;
+  padding: 10px 13px;
+  padding-top: 0px;
+  display: block;
+  width: 100%;
+  color: rgba(128, 128, 128, 0.9);
+  transition: 0.3s ease-in-out;
+}
+@media only screen and (max-width: 767px) {
+  ul.more-content li {
+      font-size: 11px;
+ }
+}
+.shrink {
+  transform: scaleY(0);
+}
+.nsfw-row.hover-height:hover {
+  height: 65px !important;
+}
+.nsfw-btn-container {
+  width: 360px;
+  height: 40px;
+  background-color: #952f12;
+  cursor: pointer;
+  margin: 30px 13px;
+  margin-bottom: 0px;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.2s ease-in-out;
+}
+.nsfw-btn-container:hover {
+  transition: 0.3s ease-in-out;
+  background-color: #c33d17;
+  box-shadow: 0px 8px 11px 0px rgba(0, 0, 0, 0.1);
+}
+.checkmark {
+  width: 24px;
+  height: 18px;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  top: 50%;
+}
+.nsfw-btn-text {
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  letter-spacing: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: "Helvetica";
+  position: absolute;
+  display: inline-block;
+  font-size: 13px !important;
+}
+.modal-close{
+  fill: rgb(235, 235, 235);
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 24px;
+  cursor: pointer;
+  z-index: 9999;
+  transition: 0.1s ease-in-out;
+}
+.modal-close:hover{
+  fill: #db1e1e;
+}

@@ -1,0 +1,45 @@
+{
+  "manifest_version": 2,
+  "version": "0.1",
+  "name": "Momo SafeSurf",
+  "description": "Made by Orthdox Christians for a holier browsing experience",
+  "homepage_url": "https://github.com/Momo-Softworks/SafeSurf",
+  "background": {
+    "page": "background.html",
+    "persistent": true
+  },
+  "browser_action": {
+    "default_title": "Momo SafeSurf",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "48": "img/momo.png",
+      "64": "img/momo.png",
+      "128": "img/momo.png",
+      "512": "img/momo.png"
+    }
+  },
+  "permissions": [
+    "storage", "tabs", "activeTab", "<all_urls>"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "css": ["css/popover.css", "css/slider.css", "css/report.css", "css/popup.css"],
+      "all_frames": true,
+      "run_at": "document_start"
+    }
+  ],
+  "icons": {
+    "48": "img/momo.png",
+    "64": "img/momo.png",
+    "128": "img/momo.png",
+    "512": "img/momo.png"
+  },
+  "web_accessible_resources": [
+    "lib/tfjs/tensorflow.min.js",
+    "lib/nsfwjs/dist/browser/nsfwjs.min.js",
+    "lib/nsfwjs/dist/models/*",
+    "img/*"
+  ],
+  "content_security_policy": "script-src 'self' 'unsafe-eval' 'unsafe-inline'  https://cdn.jsdelivr.net; object-src 'self'"
+}

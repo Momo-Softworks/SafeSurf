@@ -1,0 +1,73 @@
+.nsfwPopover {
+  position: absolute;
+  transition: opacity 0.3s ease-in-out;
+  z-index: 99999999999999999;
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+}
+
+.showPopover {
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.hidePopover {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.nsfw-blur{
+  transition: filter 0s ease-in-out; 
+  filter: blur(30px) !important
+}
+
+.blurred30{
+  transition: filter 0.3s ease-in-out; 
+  filter: blur(30px) !important
+}
+.blurred27{
+  transition: filter 0.1s ease-in-out; 
+  filter: blur(27px) !important
+}
+.blurred24{
+  transition: filter 0.1s ease-in-out; 
+  filter: blur(24px) !important
+}
+.blurred21{
+  transition: filter 0.1s ease-in-out; 
+  filter: blur(21px) !important
+}
+.blurred18{
+  transition: filter 0.1s ease-in-out; 
+  filter: blur(18px) !important
+}
+.blurred15{
+  transition: filter 0.1s ease-in-out; 
+  filter: blur(15px) !important
+}
+.blurred12{
+  transition: filter 0.1s ease-in-out; 
+  filter: blur(12px) !important
+}
+.blurred9{
+  transition: filter 0.1s ease-in-out; 
+  filter: blur(9px) !important
+}
+.blurred6{
+  transition: filter 0.1s ease-in-out; 
+  filter: blur(6px) !important
+}
+.blurred3{
+  transition: filter 0.1s ease-in-out; 
+  filter: blur(3px) !important
+}
+.blurred0{
+  transition: filter 0.3s ease-in-out; 
+  filter: blur(0px) !important
+}
+
+.sfw-shown{
+  transition: filter 0.1s ease-in-out; 
+  filter: none !important;
+}

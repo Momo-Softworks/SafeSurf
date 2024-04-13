@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>SafeSurf</title>
+  <link rel="stylesheet" href="css/materialize.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="css/popup.css">
+
+</head>
+<body>
+
+
+    <div class="nsfw-container">
+
+        <nav>
+            <div class="nav-wrapper blue">
+              <a href="#" class="brand-logo" style="margin-left: 20px; text-shadow: 0 2px 0 rgba(0,0,0,.25); cursor: crosshair">Momo SafeSurf</a>
+              <ul id="nav-mobile" class="right hide-on-med-and-down" >
+                <li><a target="_blank" href="https://github.com/Momo-Softworks/SafeSurf">Homepage</a></li>
+                <li><a target="_blank" href="https://github.com/Momo-Softworks/SafeSurf">GitHub</a></li>
+                <li><a target="_blank" href="https://discord.gg/nNYYP8pjcY">Discord</a></li>
+              </ul>
+            </div>
+          </nav>
+
+
+    <div class="nsfw-content-container">
+
+
+      <div class="topLine">
+        <h5 
+        style="margin: 0px;"
+        class="tooltipped" 
+        data-position="right" 
+        data-tooltip="Refresh to apply"
+        >Custom Thresholds</h5>
+        <span style="margin-bottom: 0px;">NSFW Blocked: <span id="detectedImages" class="count">0</span></span>
+      </div>
+
+        
+        
+        
+        <div class="threshold-setting" style="margin-top: 30px;">
+            <p>Porn</p>
+            <div class="range-field ">
+                <input type="range" id="pornRange" min="0" max="100" />
+                <input type="number" id="pornInput" min="0" max="100" step="1" class="threshold-input"><span class="raised-percent">%</span>
+            </div>
+        </div>
+        
+        <div class="threshold-setting">
+            <p>Hentai</p>
+            <div class="range-field">
+                <input type="range" id="hentaiRange" min="0" max="100" />
+                <input type="number" id="hentaiInput" min="0" max="100" step="1" class="threshold-input"><span class="raised-percent">%</span>
+            </div>
+        </div>
+        
+        <div class="threshold-setting">
+            <p>Sexy</p>
+            <div class="range-field">
+                <input type="range" id="sexyRange" min="0" max="100" />
+                <input type="number" id="sexyInput" min="0" max="100" step="1" class="threshold-input"><span class="raised-percent">%</span>
+            </div>
+        </div>
+        
+        <h5 
+        style="margin-bottom: 0px; margin-top: 0px; display: inline-block;" 
+        class="tooltipped" 
+        data-position="right" 
+        data-tooltip="Disables scanning for specified sites"
+        >Whitelisted Sites</h5>
+
+
+
+            <form class="col s12" style="margin-top: 28px;">
+              <div class="row">
+                <div class="input-field" style="margin-right: 23px;">
+                  <i class="material-icons prefix">blur_off</i>
+                  <input id="whitelisted-sites" type="text" class="validate">
+                  <label for="whitelisted-sites">Comma separated eg. youtube.com, twitter.com</label>
+                </div>
+               
+              </div>
+            </form>
+
+        
+    </div>
+
+</div>
+
+<script src="js/materialize.min.js" integrity="sha512-NiWqa2rceHnN3Z5j6mSAvbwwg3tiwVNxiAQaaSMSXnRRDh5C2mk/+sKQRw8qjV1vN4nf8iK2a0b048PnHbyx+Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>  
+<script  src="js/popup.js"></script>
+
+
+</body>
+</html>

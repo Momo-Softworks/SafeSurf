@@ -1,0 +1,168 @@
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+body {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+
+}
+
+:root{
+  --blue: #2196f3;
+  --gray: #9E9E9E;
+}
+
+.nsfw-container{
+  width: 510px;
+  height: 600px;
+  /* box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px; */
+  font-size: 14.5px;
+}
+
+.nsfw-content-container{
+  padding: 25px;
+  padding-top: 10px;
+  padding-bottom: 0px;
+}
+
+
+.topLine{
+  display: flex;
+  align-items: center; /* Align items vertically in the center */
+  justify-content: space-between; /* Space between the span container and h5 */
+  margin-top: 16px;
+}
+
+.threshold-setting {
+  margin-bottom: 20px;
+}
+
+.range-field {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.range-field input[type=range] {
+  flex-grow: 1;
+  margin-right: 30px !important; /* Creates space between the slider and the input */
+}
+
+.threshold-input {
+  width: 100px !important; /* Adjusts the width of the input field */
+  position: relative;
+  bottom: 18px;
+  text-align: right;
+}
+
+.raised-percent{
+position: relative;
+bottom: 18px;
+}
+
+input[type="number"]:focus {
+  border-color: var(--blue) !important;
+}
+
+input[type=range] + .thumb {
+  background-color: var(--blue);
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  background-color: var(--blue) ;
+}
+
+
+input[type="range"]::-moz-range-thumb {
+  background-color: var(--blue) ;
+}
+
+
+
+  .input-field input[type=text]:focus + label {
+    color: var(--blue);
+  }
+  
+
+
+  .input-field input[type=text]:focus + label {
+    color: var(--blue) !important;
+  }
+
+.input-field input[type=text]:focus {
+    border-bottom: 1px solid var(--blue) !important;
+    box-shadow: 0 1px 0 0 var(--blue) !important;
+  }
+
+.input-field input[type=text].valid {
+    border-bottom: 1px solid var(--blue) !important;
+    box-shadow: 0 1px 0 0 var(--blue) !important;
+  }
+
+
+  .input-field .prefix {
+    color: var(--gray);
+  }
+
+  .input-field .prefix.active {
+    color: var(--blue);
+  }
+
+
+  .count{
+    color: transparent;
+    background: rgb(33, 150, 243);
+    background: linear-gradient(
+      90deg,
+      rgba(255, 0, 0, 1) 0%,
+      rgba(238, 100, 10, 1) 7%,
+      rgba(210, 169, 39, 1) 14%,
+      rgba(234, 252, 62, 1) 21%,
+      rgba(134, 248, 82, 1) 28%,
+      rgba(99, 245, 156, 1) 35%,
+      rgba(87, 241, 215, 1) 42%,
+      rgba(75, 216, 237, 1) 49%,
+      rgba(66, 158, 239, 1) 56%,
+      rgba(57, 74, 241, 1) 63%,
+      rgba(126, 45, 244, 1) 70%,
+      rgba(162, 84, 247, 1) 77%,
+      rgba(229, 117, 249, 1) 84%,
+      rgba(251, 103, 164, 1) 91%,
+      rgba(253, 127, 190, 1) 97%,
+      rgba(255, 0, 191, 1) 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-size: 500%;
+    animation: color 10s linear infinite;
+    font-weight: bold;
+  }
+  
+  @keyframes color {
+    from {
+      background-position: 0% 50%;
+    }
+    to {
+      background-position: 100% 50%;
+    }
+  }
+
+
+  .egg{
+    background-image: url("https://cdn.discordapp.com/attachments/714570950745784350/1226628209718726716/never-goon-v0-w02uarvwua9c1.webp?ex=6625758a&is=6613008a&hm=eda1387cebca401f95cb81493336df953b7c74d273f7b84fa619d2150f762602&");
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.0);
+    opacity: 0;
+    z-index: 1000; /* Ensure it's above other content */
+    width: 300px;
+    height: 300px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+  }
+
+  
