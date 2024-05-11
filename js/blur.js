@@ -181,49 +181,41 @@ document.addEventListener('DOMContentLoaded', () => {
 	const sliderContainer = document.createElement('div');
 	sliderContainer.id = 'sliderContainer';
 	sliderContainer.innerHTML = 
-  `
-      <div class="tick-slider">
-            
-      <div class="tick-slider-value-container">
-          <div id="weightLabelMin" class="tick-slider-label">
-              <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="none" viewBox="0 0 24 24">
-                  <path stroke="currentColor" stroke-width="2" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"/>
-                  <path stroke="currentColor" stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
-                </svg>
-            </div>
-            <div id="weightLabelMax" class="tick-slider-label black-svg">
-
-                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="none" viewBox="0 0 24 24">
-                  
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.933 13.909A4.357 4.357 0 0 1 3 12c0-1 4-6 9-6m7.6 3.8A5.068 5.068 0 0 1 21 12c0 1-3 6-9 6-.314 0-.62-.014-.918-.04M5 19 19 5m-4 7a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
-              
-              
-                </svg>
-            </div>
-            
-          <div id="weightValue" class="tick-slider-value"></div>
-      </div>
-      <div class="tick-slider-background"></div>
-      <div id="weightProgress" class="tick-slider-progress"></div>
-      <div id="weightTicks" class="tick-slider-tick-container"></div>
-      <input
-          id="weightSlider"
-          class="tick-slider-input"
-          type="range"
-          min="0"
-          max="100"
-          step="10"
-          value="100"
-          data-tick-step="10"
-          data-tick-id="weightTicks"
-          data-value-id="weightValue"
-          data-progress-id="weightProgress"
-          data-handle-size="18"
-          data-min-label-id="weightLabelMin"
-          data-max-label-id="weightLabelMax"
-      />
-      </div>
-  `;
+	`
+		  <div class="tick-slider">
+					  
+			  
+			  <div class="tick-slider-value-container">
+				  
+				  <div id="blurLabel" class="tick-slider-label">
+					  <svg id="blurIcon" class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="none" viewBox="0 0 24 24">
+						  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.933 13.909A4.357 4.357 0 0 1 3 12c0-1 4-6 9-6m7.6 3.8A5.068 5.068 0 0 1 21 12c0 1-3 6-9 6-.314 0-.62-.014-.918-.04M5 19 19 5m-4 7a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+					  </svg>
+				  </div>
+				  
+				  <div id="weightValue" class="tick-slider-value"></div>
+			  </div>
+			  <div class="tick-slider-background"></div>
+			  <div id="weightProgress" class="tick-slider-progress"></div>
+			  <div id="weightTicks" class="tick-slider-tick-container"></div>
+			  <input
+				  id="weightSlider"
+				  class="tick-slider-input"
+				  type="range"
+				  min="0"
+				  max="100"
+				  step="10"
+				  value="100"
+				  data-tick-step="10"
+				  data-tick-id="weightTicks"
+				  data-value-id="weightValue"
+				  data-progress-id="weightProgress"
+				  data-handle-size="18"
+				  data-min-label-id="weightLabelMin"
+				  data-max-label-id="weightLabelMax"
+			  />
+		  </div>
+	`;
 
 	const fabContainer = document.createElement('div');
 	fabContainer.className = 'fab-container';
@@ -254,9 +246,25 @@ document.addEventListener('DOMContentLoaded', () => {
 		const rect = img.getBoundingClientRect();
 		const sliderContainer = popover.querySelector("#sliderContainer");
 		const fabContainer = popover.querySelector(".fab-container");
+		const blurBtn = document.getElementById("blurLabel");
 		popover.style.maxWidth = `${rect.width+50}px`;
 		sliderContainer.style.maxWidth = `${rect.width}px`;
-		fabContainer.style.right = `${(rect.width / 2) + 17}px`;
+
+
+		if(img.classList.contains('nsfw-blur')){
+			fabContainer.style.top = `${(rect.height/2 + 36)}px`;
+			fabContainer.style.right = `${(rect.width / 2) + 17}px`;
+			blurBtn.style.right = `0px`;
+			
+		}
+		else{
+			fabContainer.style.top = `10px`;
+			fabContainer.style.right = `${(rect.width / 2) - 6}px`;
+			blurBtn.style.right = `25px`;
+		}
+		
+		
+		console.log(rect.height)
 
 		// Align left edge of the popover with the left edge of the image
 		const popoverX = rect.left - 20;
@@ -280,17 +288,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 			// Remove listeners here
 			const weightSlider = document.getElementById("weightSlider");
-			const weightLabelMin = document.getElementById("weightLabelMin");
-			const weightLabelMax = document.getElementById("weightLabelMax");
+			const blurBtn = document.getElementById("blurLabel");
 
 			if (weightSlider._currentListener) {
 				weightSlider.removeEventListener('input', weightSlider._currentListener);
 			}
-			if (weightLabelMin._currentListener) {
-				weightLabelMin.removeEventListener('click', weightLabelMin._currentListener);
-			}
-			if (weightLabelMax._currentListener) {
-				weightLabelMax.removeEventListener('click', weightLabelMax._currentListener);
+			if (blurBtn._currentListener) {
+				blurBtn.removeEventListener('click', blurBtn._currentListener);
 			}
 		};
 
@@ -428,7 +432,6 @@ const updateSliderForNewImage = (img) => {
 	const weightSlider = document.getElementById("weightSlider");
 	const blurClassPrefix = "blurred";
 
-
 	if (img.classList.contains("sfw-shown")) {
 		weightSlider.value = 0;
 	} else {
@@ -449,60 +452,47 @@ const updateSliderForNewImage = (img) => {
 
 function initSlider(img) {
 	const weightSlider = document.getElementById("weightSlider");
-	const weightLabelMin = document.getElementById("weightLabelMin");
-	const weightLabelMax = document.getElementById("weightLabelMax");
+	const blurBtn = document.getElementById("blurLabel");
 	const sliders = document.getElementsByClassName("tick-slider-input");
 
 	for (let slider of sliders) {
 		slider.oninput = onSliderInput;
 
+		//Called initially
 		updateValuePosition(slider);
 		updateProgress(slider);
 		setTicks(slider);
+		updateImage(slider);
 	}
 
 	const inputListener = function() {
 		const blurValue = (this.value / 100) * 30;
-		img.classList.forEach(className => {
-			if (className.startsWith('blurred') || className.includes('sfw-shown')) {
-				img.classList.remove(className);
-			}
-		});
-		img.classList.add(`blurred${blurValue}`);
+		img.className =(`blurred${blurValue}`);
 	};
 
-	const minClickListener = function() {
-		weightSlider.value = weightSlider.min;
-		triggerSliderUpdate(weightSlider);
-		img.classList.forEach(className => {
-			if (className.includes('blurred') || className.includes('sfw-shown')) {
-				img.classList.remove(className);
-			}
-		});
-		img.classList.add(`blurred0`);
-	};
-
-	const maxClickListener = function() {
-		weightSlider.value = weightSlider.max;
-		triggerSliderUpdate(weightSlider);
-		img.classList.forEach(className => {
-			if (className.includes('blurred') || className.includes('sfw-shown')) {
-				img.classList.remove(className);
-			}
-		});
-		img.classList.add(`blurred30`);
-	};
+	const btnListener = function() {
+		//If it's fully blurred, button should unblur it.
+		if(img.classList.contains('nsfw-blur') || img.classList.contains('blurred30')){
+			img.className = 'blurred0';
+			weightSlider.value = weightSlider.min;
+			triggerSliderUpdate(weightSlider);
+		}
+		//Otherwise, we fully blur it.
+		else{
+			img.className = 'blurred30';
+			weightSlider.value = weightSlider.max;
+			triggerSliderUpdate(weightSlider);
+		}
+	}
 
 	prepareModal(img)
 
 	weightSlider.addEventListener('input', inputListener);
-	weightLabelMin.addEventListener('click', minClickListener);
-	weightLabelMax.addEventListener('click', maxClickListener);
+	blurBtn.addEventListener('click', btnListener);
 
 	// Store references to the new listeners for removal later
 	weightSlider._currentListener = inputListener;
-	weightLabelMin._currentListener = minClickListener;
-	weightLabelMax._currentListener = maxClickListener;
+	blurBtn._currentListener = btnListener;
 }
 
 function triggerSliderUpdate(slider) {
@@ -514,26 +504,7 @@ function triggerSliderUpdate(slider) {
 function onSliderInput(event) {
 	updateValuePosition(event.target);
 	updateProgress(event.target);
-
-	const isAtMin = event.target.value == event.target.min;
-	const isAtMax = event.target.value == event.target.max;
-
-	// Get the SVG elements
-	const minSvg = document.getElementById("weightLabelMin");
-	const maxSvg = document.getElementById("weightLabelMax");
-
-	// Add or remove the 'black-svg' class based on the slider position
-	if (isAtMin) {
-		minSvg.classList.add("black-svg");
-	} else {
-		minSvg.classList.remove("black-svg");
-	}
-
-	if (isAtMax) {
-		maxSvg.classList.add("black-svg");
-	} else {
-		maxSvg.classList.remove("black-svg");
-	}
+	updateImage(event.target);
 }
 
 function updateValuePosition(slider) {
@@ -551,6 +522,7 @@ function updateValuePosition(slider) {
 	left = slider.value === slider.min ? 0 : left;
 
 	value.style.left = left + "px";
+
 }
 
 
@@ -583,6 +555,28 @@ function setTicks(slider) {
 
 		container.appendChild(tick);
 	}
+}
+
+
+function updateImage(slider){
+
+	const isAtMin = slider.value == slider.min;
+	const isAtMax = slider.value == slider.max;
+
+	const blurIcon = document.getElementById("blurIcon")
+
+	if (isAtMax) {
+		blurIcon.innerHTML = `
+		<path stroke="currentColor" stroke-width="2" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"/>
+		<path stroke="currentColor" stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>	
+		`;
+	} else {
+		blurIcon.innerHTML = `
+		<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.933 13.909A4.357 4.357 0 0 1 3 12c0-1 4-6 9-6m7.6 3.8A5.068 5.068 0 0 1 21 12c0 1-3 6-9 6-.314 0-.62-.014-.918-.04M5 19 19 5m-4 7a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+
+		`;
+	}
+
 }
 
 function onResize() {
@@ -988,4 +982,3 @@ function getImageUrl(img) {
 		return img.style.backgroundImage.slice(4, -1).replace(/["']/g, "");
 	}
 }
-
