@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "version": "0.1",
   "name": "Momo SafeSurf",
-  "description": "Made by Orthdox Christians for a holier browsing experience",
+  "description": "Made by Orthodox Christians for a holier browsing experience",
   "homepage_url": "https://github.com/Momo-Softworks/SafeSurf",
   "background": {
     "page": "background.html",
